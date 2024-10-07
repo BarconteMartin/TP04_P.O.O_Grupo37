@@ -24,6 +24,7 @@ public class ContratoAlquiler extends Contrato{
     }
     
     public void mostrarDatos() {
+    	System.out.println("----------------------");
     	System.out.println("Duracion: " + duracion);
     	System.out.println("Precio: " + vivienda.getPrecio());
     	System.out.println("Gastos de inmobiliaria: " + gastosInm);

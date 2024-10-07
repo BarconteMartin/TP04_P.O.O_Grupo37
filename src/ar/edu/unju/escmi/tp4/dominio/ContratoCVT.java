@@ -39,11 +39,15 @@ public class ContratoCVT extends Contrato {
 	}
 	
 	public void mostrarDatos() {
-		System.out.println("\nCodigo del contrato: "+codigo);
+		System.out.println("----------------------");
+		System.out.println("Codigo del contrato: "+codigo);
 		System.out.println("Fecha del contrato: "+fechaContrato);
 		System.out.println("DNI del comprador: "+cliente.getDni());
-		System.out.println("Nombre de la inmobiliaria: "+inmobiliaria.getNombre());
 		System.out.println("Codigo del terreno: "+terreno.getCodigo());
 		System.out.println("Precio total: "+montoTotal());
+		System.out.println("DATOS DE INMOBILIARIA");
+		System.out.println("- Nombre: "+inmobiliaria.getNombre());
+		System.out.println("- Dirección: "+inmobiliaria.getDireccion());
+		System.out.println("- Teléfono: "+inmobiliaria.getTelefono());
 	}
 }

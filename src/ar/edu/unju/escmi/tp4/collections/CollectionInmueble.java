@@ -1,59 +1,42 @@
 package ar.edu.unju.escmi.tp4.collections;
 
+import ar.edu.unju.escmi.tp4.dominio.Inmueble;
 import ar.edu.unju.escmi.tp4.dominio.Terreno;
-import ar.edu.unju.escmi.tp4.dominio.Vivienda;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CollectionInmueble { 
-    public static List<Terreno> terrenos = new ArrayList<>();
-    public static List<Vivienda> viviendas = new ArrayList<>();
+    public static List<Inmueble> inmuebles = new ArrayList<>();
 
-    public static void agregarTerreno(Terreno terreno) {
-        terrenos.add(terreno);
+    // Agregar un inmueble (puede ser vivienda o terreno)
+    public static void agregarInmueble(Inmueble inmueble) {
+        inmuebles.add(inmueble);
     }
 
-    public static Terreno buscarTerreno(String codigo) {
-        for (Terreno terreno : terrenos) {
-            if (terreno.getCodigo().equals(codigo)) {
-                return terreno;
+    // Buscar inmueble por código
+    public static Inmueble buscarInmueble(String codigo) {
+        for (Inmueble inmueble : inmuebles) {
+            if (inmueble.getCodigo().equals(codigo)) {
+                return inmueble;
             }
         }
         return null;
     }
-    
-    public static void cambiarEstadoTerreno(String codigo) {
-        for (Terreno terreno : terrenos) {
-            if (terreno.getCodigo().equals(codigo)) {
-                terreno.setEstado(false);
+
+    // Cambiar estado de un inmueble
+    public static void cambiarEstadoInmueble(String codigo) {
+        for (Inmueble inmueble : inmuebles) {
+            if (inmueble.getCodigo().equals(codigo)) {
+                inmueble.setEstado(false);
             }
         }
     }
-    
-    
+
+    // Calcular el monto total de las ventas de terrenos
     public static double calcularMontoTotalVentas() {
-        return terrenos.stream().filter(t -> !t.isEstado()).mapToDouble(Terreno::getPrecio).sum();
-    }
-    
-    
-    public static void agregarVivienda(Vivienda vivienda) {
-        viviendas.add(vivienda);
-    }
-    
-    public static Vivienda buscarVivienda(String codigo) {
-    	for (Vivienda vivienda : viviendas) {
-    		if(vivienda.getCodigo().equals(codigo)) {
-    			return vivienda;
-    		}
-    	}
-    	return null;
-    }
-    
-    public static void cambiarEstadoVivienda(String codigo) {
-    	for(Vivienda vivienda : viviendas) {
-    		if(vivienda.getCodigo().equals(codigo)) {
-    			vivienda.setEstado(false);
-    		}
-    	}
+        return inmuebles.stream()
+                        .filter(inmueble -> inmueble instanceof Terreno && !inmueble.isEstado())
+                        .mapToDouble(inmueble -> ((Terreno) inmueble).getPrecio())
+                        .sum();
     }
 }

@@ -30,6 +30,6 @@ public class Vivienda extends Inmueble {
 
     @Override
     public void mostrarDatos() {
-        System.out.println("Vivienda: " + codigo + ", Precio Alquiler: $ " + precio +  ", Dirección: " + direccion + ", Habitaciones: " + cantidadHabitaciones);
+        System.out.println("- Vivienda: " + codigo + ", Precio Alquiler: $ " + precio +  ", Dirección: " + direccion + ", Habitaciones: " + cantidadHabitaciones);
     }
 }

@@ -3,11 +3,11 @@ package ar.edu.unju.escmi.tp4.dominio;
 public class Inmobiliaria {
 
 	private String nombre;
-	private int telefono;
+	private String telefono;
 	private String direccion;
 	
 	
-	public Inmobiliaria(String nombre, int telefono, String direccion) {
+	public Inmobiliaria(String nombre, String telefono, String direccion) {
 		super();
 		this.nombre = nombre;
 		this.telefono = telefono;
@@ -24,11 +24,11 @@ public class Inmobiliaria {
 	}
 
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
