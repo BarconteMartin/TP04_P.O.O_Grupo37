@@ -161,18 +161,30 @@ public class Main {
                     scanner.nextLine();
                     switch (op2) {
                         case 1:
-                        	System.out.println("\nViviendas disponibles:");
-                            CollectionInmueble.inmuebles.stream()
+                            System.out.println("\nViviendas disponibles:");
+                            boolean hayViviendas = CollectionInmueble.inmuebles.stream()
                                 .filter(inmueble -> inmueble instanceof Vivienda && inmueble.isEstado())
-                                .forEach(inmueble -> ((Vivienda) inmueble).mostrarDatos());
-                            inmobiliaria.mostrarDatos();
+                                .peek(inmueble -> ((Vivienda) inmueble).mostrarDatos())
+                                .count() > 0;
+
+                            if (!hayViviendas) {
+                                System.out.println("No hay viviendas disponibles.");
+                            } else {
+                                inmobiliaria.mostrarDatos();
+                            }
                             break;
                         case 2:
-                        	System.out.println("\nViviendas disponibles:");
-                            CollectionInmueble.inmuebles.stream()
+                            System.out.println("\nTerrenos disponibles:");
+                            boolean hayTerrenos = CollectionInmueble.inmuebles.stream()
                                 .filter(inmueble -> inmueble instanceof Terreno && inmueble.isEstado())
-                                .forEach(inmueble -> ((Terreno) inmueble).mostrarDatos());
-                            inmobiliaria.mostrarDatos();
+                                .peek(inmueble -> ((Terreno) inmueble).mostrarDatos())
+                                .count() > 0;
+
+                            if (!hayTerrenos) {
+                                System.out.println("No hay terrenos disponibles.");
+                            } else {
+                                inmobiliaria.mostrarDatos();
+                            }
                             break;
                         default:
                             System.out.println("Opción inválida");
