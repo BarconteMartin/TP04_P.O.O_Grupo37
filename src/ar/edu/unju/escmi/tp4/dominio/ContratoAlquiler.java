@@ -7,9 +7,6 @@ public class ContratoAlquiler extends Contrato{
 	private double gastosInm;
 	private Vivienda vivienda;
 	
-
-	
-	
     public ContratoAlquiler(String codigo, LocalDate fechaContrato, Cliente cliente, Inmobiliaria inmobiliaria,
 			double duracion, double gastosInm, Vivienda vivienda) {
 		super(codigo, fechaContrato, cliente, inmobiliaria);
@@ -18,17 +15,22 @@ public class ContratoAlquiler extends Contrato{
 		this.vivienda = vivienda;
 	} 
 
-
 	public double calcularMontoTotal() {
         return vivienda.getPrecio() + gastosInm;
     }
     
     public void mostrarDatos() {
     	System.out.println("----------------------");
+    	System.out.println("Codigo del contrato: "+codigo);
+    	System.out.println("Fecha del contrato: "+fechaContrato);
     	System.out.println("Duracion: " + duracion);
+    	System.out.println("Dirección: " + vivienda.getDireccion());
     	System.out.println("Precio: " + vivienda.getPrecio());
     	System.out.println("Gastos de inmobiliaria: " + gastosInm);
-    	System.out.println("Inmueble: " + vivienda.getDireccion());
-    	System.out.println("Monto Total: " + calcularMontoTotal());
+    	System.out.println("Monto Total Alquiler: " + calcularMontoTotal());
+    	System.out.println("DATOS DE INMOBILIARIA");
+		System.out.println("- Nombre: "+inmobiliaria.getNombre());
+		System.out.println("- Dirección: "+inmobiliaria.getDireccion());
+		System.out.println("- Teléfono: "+inmobiliaria.getTelefono());
     }
 }

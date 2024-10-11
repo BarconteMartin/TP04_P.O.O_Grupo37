@@ -42,5 +42,4 @@ public class Terreno extends Inmueble {
     public void mostrarDatos() {
         System.out.println("- Terreno: " + codigo + ", Precio: $ " + precio +", Latitud: " + latitud + ", Longitud: " + longitud + ", Superficie: " + superficie + "m²");
     }
-
 }
